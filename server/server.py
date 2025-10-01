@@ -1,18 +1,30 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import util
+import os
 
-app = Flask(__name__)
-CORS(app)  # CORS ko globally enable karta hai
+# Create Flask app; static_folder is the folder of your frontend files
+app = Flask(
+    __name__,
+    static_folder="../client",     # relative path from server/ to client/
+    static_url_path=""             # serve static files at root (so "/" works)
+)
+CORS(app)
 
 @app.route('/')
-def home():
-    return "🏠 Home Price Prediction API is running. Use /get_location_names or /predict_home_price"
+def serve_index():
+    # This will return client/index.html
+    return app.send_static_file("index.html")
+
+# You can also serve other frontend routes if needed, like /about etc:
+# @app.route('/somepage')
+# def serve_page():
+#     return app.send_static_file("somepage.html")
 
 @app.route('/get_location_names')
 def get_location_names():
     locations = util.get_location_names()
-    if isinstance(locations, list):  # Ensure it's a list
+    if isinstance(locations, list):
         return jsonify({'locations': locations})
     else:
         return jsonify({'locations': []}), 500
@@ -31,4 +43,6 @@ def predict_home_price():
 if __name__ == "__main__":
     print("Starting Python Flask Server for Home Price Prediction...")
     util.load_saved_artifacts()
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    # Do *not* use debug=True in production; in development it's okay
+    app.run(host="0.0.0.0", port=port)
