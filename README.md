@@ -1,18 +1,18 @@
 Project: Bangalore Home Price Prediction
 
-Ye ek web-based application hai jo users ko Bangalore ke ghar ke estimated price ka idea deta hai. Isme user-friendly frontend aur Python Flask backend ka use kiya gaya hai.
+This is a web-based application that provides users with an estimated price of houses in Bangalore. The project combines a user-friendly frontend with a Python Flask backend powered by a machine learning model.
 
 Features:
 
-Area Input: Users apne ghar ka square feet enter kar sakte hain.
+Area Input: Users can enter the total square footage of the house.
 
-BHK Selection: 1–5 BHK radio buttons ke through select kar sakte hain.
+BHK Selection: Users can select the number of bedrooms (1–5) via radio buttons.
 
-Bathroom Selection: 1–5 bathrooms select karne ka option.
+Bathroom Selection: Users can select the number of bathrooms (1–5).
 
-Location Dropdown: Saari Bangalore locations dynamically backend se fetch hoti hain.
+Location Dropdown: All Bangalore locations are dynamically fetched from the backend.
 
-Price Estimation: “Estimate Price” button press karte hi machine learning model ke through predicted price show hota hai (in Lakh).
+Price Estimation: Clicking the “Estimate Price” button calculates the predicted house price (in Lakh) using a trained machine learning model.
 
 Technology Stack:
 
@@ -22,22 +22,22 @@ Backend: Python Flask
 
 Machine Learning Model: Linear Regression (trained on Bangalore housing dataset)
 
-AJAX: Server se asynchronous data fetch karne ke liye
+AJAX: Asynchronous communication between frontend and backend
 
 How It Works:
 
-User form fill karta hai → area, BHK, bathroom, location.
+The user fills in the form → area, BHK, bathrooms, and location.
 
-AJAX POST request backend me jati hai → trained model use karke estimated price calculate karta hai.
+An AJAX POST request is sent to the backend → the model predicts the estimated price.
 
-Result frontend me reload kiye bina show hota hai.
+The result is displayed on the frontend without reloading the page.
 
-Locations dropdown backend se GET request ke through dynamically populate hota hai.
+The location dropdown is dynamically populated via an AJAX GET request to the backend.
 
 Purpose:
 
-Quick Price Estimation: Real estate buyers aur sellers ke liye ghar ka approximate price jaanne ka fast tool.
+Quick Price Estimation: Helps real estate buyers and sellers get a quick idea of house prices.
 
-User-Friendly: Simple interface aur live price estimation without page reload.
+User-Friendly: Clean interface with live price prediction.
 
-Dynamic & Scalable: Locations easily update ho sakti hain aur model retraining ke saath accurate predictions milti hain.
+Dynamic & Scalable: Locations can easily be updated, and the model can be retrained to improve accuracy.
