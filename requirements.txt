@@ -3,4 +3,6 @@ Flask-CORS==4.0.1
 gunicorn==21.2.0
 numpy==1.25.2
 pandas==2.2.3
+setuptools>=61
 scikit-learn==1.6.1
+
