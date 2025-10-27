@@ -44,7 +44,7 @@ This is a **web-based application** that predicts the price of houses in Bangalo
 
 ## 📸 Screenshot (Optional)
 
-![Screenshot](path/to/screenshot.png)  
+![Screenshot](https://github.com/ani47kat/ani47kat.github.io/blob/main/screenshot.png)  
 
 ---
 
